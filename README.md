@@ -51,13 +51,14 @@ The tool encodes order details into QR codes that open directly in a hosted view
 https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/
 
 ## Example Outputs
-You can try scanning these QR codes or open the URLs directly:
-Customer Order WG96895753
-([https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753)).
-Customer Order WN30452442
-[(https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442)](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442).
+You can try scanning these QR codes or open the URLs directly.
 
-(These examples are stored as .txt files in docs/qr/ so the QR viewer loads them dynamically.)
+Here are live examples you can open directly in the hosted QR viewer:
+Customer Order WG96895753 → Open Example
+Customer Order WN30452442 → Open Example
+
+(These examples are stored as .txt files in docs/qr/, and the QR viewer loads them dynamically.)
+
 
 ## License
 MIT – free to use for demonstration purposes.
