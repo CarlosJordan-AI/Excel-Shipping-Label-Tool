@@ -62,7 +62,7 @@
     if (text) {
       render(text);
     } else if (id && /^[A-Za-z0-9_\-]+$/.test(id)) {
-      fetch(`./data/${id}.txt`, { cache: 'no-store' })
+      fetch(`./${id}.txt`, { cache: 'no-store' })
         .then(r => r.ok ? r.text() : Promise.reject(r.status))
         .then(render)
         .catch(() => render('Not found.'));
