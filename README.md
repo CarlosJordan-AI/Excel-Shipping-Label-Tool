@@ -54,8 +54,8 @@ https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/
 You can try scanning these QR codes or open the URLs directly.
 
 Here are live examples you can open directly in the hosted QR viewer:
-Customer Order WG96895753 → Open Example
-Customer Order WN30452442 → Open Example
+Customer Order WG96895753 → Open Example https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753
+Customer Order WN30452442 → Open Example https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442
 
 (These examples are stored as .txt files in docs/qr/, and the QR viewer loads them dynamically.)
 
