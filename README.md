@@ -23,13 +23,14 @@ This Excel VBA-based tool automates:
 - **docs/** → User manual, screenshots, sample outputs.
 
 ## How to Use
-1. Download the latest release (`WarehouseOrdersTool.xlsm`).
+1. Download the latest release (`Version3.0.xlsm`).
 2. Enable macros in Excel.
 3. Follow the [User Manual].
 
 ## Example Outputs
-![Sample Label](docs/Screenshots/sample-label.png)
-![Sample BOL](docs/Screenshots/sample-bol.png)
+[Sample Label]
+[Sample BOL]
+[Sample QRs]
 
 ## License
 MIT – free to use for demonstration purposes.
