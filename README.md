@@ -26,16 +26,16 @@ This Excel VBA-based tool automates:
 
 ## 📂 Repository Contents
 Excel-Shipping-Label-Tool/
-├── Modules/ # Exported VBA macros
-├── Example Files/ # Updated example workbooks / PDFs
-├── docs/
-│ └── qr/ # QR viewer (GitHub Pages)
-│ ├── index.html
-│ ├── logo/
-│ ├── WG96895753.txt # Example order data
-│ └── WN30452442.txt # Example order data
-├── Shipping Labels and Bill Of Lading Tool SOP V3.docx
-└── Version3.0.xlsm # Latest working version of the tool
+- ├── Modules/ # Exported VBA macros
+- ├── Example Files/ # Updated example workbooks / PDFs
+- ├── docs/
+- │ └── qr/ # QR viewer (GitHub Pages)
+- │ ├── index.html
+- │ ├── logo/
+- │ ├── WG96895753.txt # Example order data
+- │ └── WN30452442.txt # Example order data
+- ├── Shipping Labels and Bill Of Lading Tool SOP V3.docx
+- └── Version3.0.xlsm # Latest working version of the tool
 
 
 ## How to Use
