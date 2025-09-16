@@ -1,55 +1,75 @@
-<img src="Screenshot_12-9-2025_10512_www.fortisdoorsusa.com.jpeg" 
-     alt="Fortis Doors Logo" 
-     style="max-width:220px; display:block; margin:0 auto 20px;">
-<!doctype html><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Order Details</title>
-<style>
-  :root{--bg:#fff;--fg:#111;--panel:#f6f8fa;--border:#e5e7eb}
-  body{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg);margin:0}
-  .wrap{max-width:720px;margin:0 auto;padding:20px}
-  h1{font-size:18px;margin:0 0 12px 0}
-  pre{white-space:pre-wrap;word-break:break-word;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;font:14px ui-monospace,Menlo,Consolas,monospace}
-  .row{display:flex;gap:8px;align-items:center;margin:8px 0 16px}
-  button{border:1px solid var(--border);border-radius:999px;padding:8px 12px;background:#fff;cursor:pointer}
-  .hint{opacity:.6}
-</style>
-<div class="wrap">
-  <h1>Order Details</h1>
-  <div class="row">
-    <button id="copy">Copy</button>
-    <span class="hint">Tip: long-press to select & copy</span>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Order Details</title>
+  <style>
+    :root { --bg:#fff; --fg:#111; --panel:#f6f8fa; --border:#e5e7eb; }
+    body { font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--fg); margin:0; }
+    .wrap { max-width:720px; margin:0 auto; padding:20px; }
+    h1 { font-size:18px; margin:0 0 12px; }
+    pre { white-space:pre-wrap; word-break:break-word; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px; font:14px ui-monospace,Menlo,Consolas,monospace; }
+    .row { display:flex; gap:8px; align-items:center; margin:8px 0 16px; }
+    button { border:1px solid var(--border); border-radius:999px; padding:8px 12px; background:#fff; cursor:pointer; }
+    .hint { opacity:.6; }
+    .logo { max-width:220px; display:block; margin:0 auto 20px; }
+    .footer { margin-top:20px; text-align:center; }
+    .footer a { color:#0645AD; text-decoration:underline; font-weight:bold; }
+  </style>
+</head>
+<body>
+  <!-- Put your image file at docs/qr/logo/fortis.png (or update the src accordingly) -->
+  <img class="logo" src="logo/Screenshot_12-9-2025_10512_www.fortisdoorsusa.com.jpeg" alt="Fortis Doors Logo" />
+
+  <div class="wrap">
+    <h1>Order Details</h1>
+    <div class="row">
+      <button id="copy">Copy</button>
+      <span class="hint">Tip: long-press to select &amp; copy</span>
+    </div>
+    <pre id="content">Loading…</pre>
+    <div class="footer">
+      <a href="https://www.fortisdoorsusa.com/" target="_blank" rel="noopener">Visit us at Fortis Doors</a>
+    </div>
   </div>
-  <pre id="content">Loading…</pre>
-</div>
-<script>
-(function(){
-  const p=new URLSearchParams(location.search);
-  const raw=(p.get('text')||'').toString().replace(/\r/g,'');
-  const lite=(p.get('lite')==='1');
 
-  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  <script>
+  (function(){
+    const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const qs = new URLSearchParams(location.search);
+    const lite = qs.get('lite') === '1';
+    const id   = qs.get('id');                 // optional: /qr/?id=FDC0001 (will fetch ./data/FDC0001.txt)
+    const text = (qs.get('text') || '').toString().replace(/\r/g,'');
 
-  let t=raw;
-  if(lite){
-    const keep=['Customer Order','Order #','#','Name','PO','Ship To','Qty','Quantity','Carrier'];
-    t = raw.split(/\n/).filter(line=>{
-      const s=line.trim(); return keep.some(k=> s.startsWith(k));
-    }).join('\n');
-  }
+    function filterLite(raw){
+      if (!lite) return raw;
+      const keep = ['Customer Order','Order #','#','Name','PO','Ship To','Qty','Quantity','Carrier'];
+      return raw.split(/\n/).filter(line => {
+        const s = line.trim();
+        return keep.some(k => s.startsWith(k));
+      }).join('\n');
+    }
 
-  // Escape order details only
-  const safeText = esc(t||'No text received.');
-  document.getElementById('content').innerHTML = safeText;
+    function render(raw){
+      const filtered = filterLite(raw || 'No text received.');
+      document.getElementById('content').innerHTML = esc(filtered);
+      document.getElementById('copy').onclick = () => navigator.clipboard.writeText(filtered || '');
+    }
 
-  // Add clickable centered footer link
-  const link = document.createElement('div');
-  link.style.marginTop = "20px";
-  link.style.textAlign = "center";
-  link.innerHTML = '<a href="https://www.fortisdoorsusa.com/" target="_blank" style="color:#0645AD; text-decoration:underline; font-weight:bold;">Visit us at Fortis Doors</a>';
-  document.querySelector('.wrap').appendChild(link);
-
-  // Copy button copies the text only (not the link)
-  document.getElementById('copy').onclick = ()=> navigator.clipboard.writeText(t||'');
-})();
-</script>
+    // Priority: ?text=... then ?id=...
+    if (text) {
+      render(text);
+    } else if (id && /^[A-Za-z0-9_\-]+$/.test(id)) {
+      fetch(`./data/${id}.txt`, { cache: 'no-store' })
+        .then(r => r.ok ? r.text() : Promise.reject(r.status))
+        .then(render)
+        .catch(() => render('Not found.'));
+    } else {
+      render('No text received.');
+    }
+  })();
+  </script>
+</body>
+</html>
