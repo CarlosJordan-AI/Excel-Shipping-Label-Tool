@@ -27,15 +27,15 @@ This Excel VBA-based tool automates:
 ## Repository Contents
 Excel-Shipping-Label-Tool/
 │
-├── Modules/              # Exported VBA macros
-├── Example Files/        # Example PDFs exports 
+├── Modules/                     # Exported VBA macros
+├── Example Files/               # Example Excel orders (updated)
 ├── docs/
-│   └── qr/               # QR code viewer (GitHub Pages)
+│   └── qr/                      # QR code viewer (GitHub Pages)
 │       ├── index.html
 │       ├── logo/
-│       └── *.txt         # Example order data
+│       └── data/                # Example order data (.txt)
 ├── Shipping Labels and Bill Of Lading Tool SOP V3.docx
-└── Version3.0.xlsm       # Latest working version of the tool
+└── Version3.1.xlsm              # Latest working version of the tool
 
 ## How to Use
 1. Download the latest release (`Version3.0.xlsm`).
@@ -50,9 +50,9 @@ https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/
 ## Example Outputs
 You can try scanning these QR codes or open the URLs directly:
 Customer Order WG96895753
-🔗 Open Example
+[🔗 Open Example](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753)
 Customer Order WN30452442
-🔗 Open Example
+🔗 [Open Example](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442)
 (These examples are stored as .txt files in docs/qr/ so the QR viewer loads them dynamically.)
 
 ## License
