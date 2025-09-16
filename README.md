@@ -53,9 +53,9 @@ https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/
 ## Example Outputs
 You can try scanning these QR codes or open the URLs directly:
 Customer Order WG96895753
-([https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753))
+([https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WG96895753)).
 Customer Order WN30452442
-[(https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442)](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442)
+[(https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442)](https://carlosjordan-ai.github.io/Excel-Shipping-Label-Tool/qr/?id=WN30452442).
 
 (These examples are stored as .txt files in docs/qr/ so the QR viewer loads them dynamically.)
 
