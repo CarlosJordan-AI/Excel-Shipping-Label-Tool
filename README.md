@@ -57,6 +57,15 @@ Here are live examples you can open directly in the hosted QR viewer:
 
 (These examples are stored as .txt files in docs/qr/, and the QR viewer loads them dynamically.)
 
+#### 🖼️ Screenshots  
+**Shipping Label Example 1**  
+![Shipping Label 1](Example%20Files/ShippingLabel1.png)  
+
+**Shipping Label Example 2**  
+![Shipping Label 2](Example%20Files/ShippingLabel2.png)  
+
+**Bill of Lading Example**  
+![Bill of Lading](Example%20Files/BOL1.png)  
 
 ## License
 MIT – free to use for demonstration purposes.
